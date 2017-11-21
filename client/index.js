@@ -1,7 +1,7 @@
 const mapboxgl = require("mapbox-gl");
 const buildMarker = require("./marker.js");
 
-mapboxgl.accessToken = "YOUR API TOKEN HERE";
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FuYWFpbWFuMjM4IiwiYSI6ImNqYTl1cDlldTBseDkycW82bm13a3FxYWsifQ.o2CE-csMPO6TgB9kWSRd6A';
 
 const fullstackCoords = [-74.009, 40.705] // NY
 // const fullstackCoords = [-87.6320523, 41.8881084] // CHI
