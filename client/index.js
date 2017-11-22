@@ -21,11 +21,32 @@ fetch("/api") //how does the index.js file know to listen on port 3000?
   result.json()
 .then(function (data) {
   console.log(data)
-  const option = document.createElement("option");
-  option.className = "hotel-option";
-  option.append(data[0][0].name);
-  document.getElementById("hotels-choices").append(option);
 
+data[0].forEach(function (hotel) {
+  let option = document.createElement("option");
+  option.className = "hotel-option";
+  option.append(hotel.name);
+  document.getElementById("hotels-choices").append(option);
+})
+
+data[1].forEach(function (restaurant) {
+  let option = document.createElement("option");
+  option.className = "restaurant-option";
+  option.append(restaurant.name);
+  document.getElementById("restaurants-choices").append(option);
+})
+
+data[2].forEach(function (activity) {
+  let option = document.createElement("option");
+  option.className = "activity-option";
+  option.append(activity.name);
+  document.getElementById("activities-choices").append(option);
+})
+
+// Get the select dom element
+const select = document.getElementById(`hotels-choices`);
+// use `.value` to get the currently selected value
+const selectedId = select.value;
 
 })
 .catch(console.error)
