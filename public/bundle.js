@@ -552,6 +552,24 @@ const map = new mapboxgl.Map({
 const marker = buildMarker("activities", fullstackCoords);
 marker.addTo(map);
 
+fetch("/api") //how does the index.js file know to listen on port 3000?
+.then(function (result) {
+  result.json()
+.then(function (data) {
+  console.log(data)
+  const option = document.createElement("option");
+  option.className = "hotel-option";
+  option.append(data[0][0].name);
+  document.getElementById("hotels-choices").append(option);
+
+
+})
+.catch(console.error)
+})
+
+
+
+
 
 /***/ }),
 /* 2 */

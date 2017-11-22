@@ -21,12 +21,12 @@ app.use(express.static('./public'));
 // app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
-  app.get('/api', function(req, res, next) {
-      Promise.all([Hotel.findAll(), Restaurant.findAll(), Activity.findAll()])
-        .then(function (allAttractions) {
-            res.json(allAttractions);
-        })
-  })
+app.get('/api', function(req, res, next) {
+    Promise.all([Hotel.findAll({include: [Place]}), Restaurant.findAll({include: [Place]}), Activity.findAll({include: [Place]})])
+      .then(function (allAttractions) {
+          res.json(allAttractions);
+      })
+})
 
 
 
